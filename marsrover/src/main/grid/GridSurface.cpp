@@ -11,11 +11,16 @@ private:
     set<GridComponent> obstacles;
 
 public:
+    GridSurface(int xUpperCoordinate, int yUpperCoordinate)
+    {
+        this->xUpperCoordinate = xUpperCoordinate;
+        this->yUpperCoordinate = yUpperCoordinate;
+    }
     void addObstacles(ObstacleCell obstacle)
     {
         obstacles.insert(obstacle);
     }
-    void dislpay()
+    void display()
     {
         for (auto it : obstacles)
         {

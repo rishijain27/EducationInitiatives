@@ -20,8 +20,7 @@ public:
     {
         rover.setXCoordinate(rover.getXCoordinate - 1);
     }
-    void accept(DirectionVisitor directionVisitor)
-    {
-        directionVisitor.visitEast();
+    char getDirectionChar(){
+        return 'E';
     }
 };

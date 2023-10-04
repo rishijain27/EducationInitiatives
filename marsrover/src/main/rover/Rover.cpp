@@ -22,7 +22,7 @@ public:
     }
     GridSurface getGrid()
     {
-        return this.grid;
+        return this->grid;
     }
     void setXCoordinate(int xCoordinate)
     {
@@ -48,28 +48,56 @@ public:
     {
         return this->direction;
     }
-    // bool isMoveCorrect(int newXCoordinate, int newYCoordinate)
-    // {
-    //     if (isForwardMove)
-    //     {
-    //         if (this->getXcoordinate)
-    //     }
-    // }
-    //     void moveForward()
-    // {
-    //     bool isMoveCorrect = getDirection().accept(new DirectionVisitor(){
-    //         void visitNorth(){
-    //             isMoveCorrect = isMoveValid(this->xCoordinate, this->yCoordinate + 1);
-    //         }
-    //         void visitSouth(){
-    //             isMoveCorrect = isMoveValid(this->xCoordinate, this->yCoordinate - 1);
-    //         }
-    //         void visitEast(){
-    //             isMoveCorrect = isMoveValid(this->xCoordinate + 1, this->yCoordinate);
-    //         }
-    //         void visitWest(){
-    //             isMoveCorrect = isMoveValid(this->xCoordinate - 1, this->yCoordinate);
-    //         }
-    //     });
-    // }
+    void validateMove()
+    {
+        if (this->xCoordinate > grid.getXUpperCoordinate() ||
+            this->yCoordinate > grid.getYUpperCoordinate() ||
+            this->xCoordinate < getXLowerCoordinate() ||
+            this->yCoordinate < grid.getYLowerCoordinare())
+        {
+            throw("Out of bounds");
+        }
+        if (grid.getObstacles().contains(new ObstacleCell(this->xCoordinate, this->yCoordinate)))
+        {
+            throw("Obstacle Detected");
+        }
+    }
+    void moveForward()
+    {
+        getDirection().moveForward(this);
+        try
+        {
+            validateMove();
+        }
+        catch (string err)
+        {
+            getDirection().moveBack(this);
+            cout << xCoordinate << " " << yCoordinate << " " << getDirection().getDirectionChar() << endl;
+            cout << err << endl;
+            throw err;
+        }
+    }
+    void moveBack()
+    {
+        getDirection().moveBack(this);
+        try
+        {
+            validateMove();
+        }
+        catch (string err)
+        {
+            getDirection().moveForward(this);
+            cout << xCoordinate << " " << yCoordinate << " " << getDirection().getDirectionChar() << endl;
+            cout << err << endl;
+            throw err;
+        }
+    }
+    void spinLeft()
+    {
+        this->direction = getDirection().spinLeft();
+    }
+    void spinRight()
+    {
+        this->direction = getDirection().spinRight();
+    }
 };

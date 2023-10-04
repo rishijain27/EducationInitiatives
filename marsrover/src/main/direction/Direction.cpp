@@ -10,5 +10,5 @@ public:
     virtual Direction spinLeft() = 0;
     virtual void moveForward(Rover rover) = 0;
     virtual void moveBack(Rover rover) = 0;
-    virtual void accept(DirectionVisitor directionVisitor) = 0;
+    virtual char getDirectionChar() = 0;
 };

@@ -19,8 +19,7 @@ public:
     {
         rover.setXCoordinate(rover.getXCoordinate - 1);
     }
-    void accept(DirectionVisitor directionVisitor)
-    {
-        directionVisitor.visitWest();
+    char getDirectionChar(){
+        return 'W';
     }
 };

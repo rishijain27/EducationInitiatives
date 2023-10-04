@@ -19,8 +19,7 @@ public:
     {
         rover.setYCoordinate(rover.getYCoordinate - 1);
     }
-    void accept(DirectionVisitor directionVisitor)
-    {
-        directionVisitor.visitNorth();
+    char getDirectionChar(){
+        return 'N';
     }
 };
