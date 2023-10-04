@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 #include "../direction/Direction.cpp"
 #include "../grid/GridSurface.cpp"
-#include "../direction/DirectionVisitor.cpp"
 using namespace std;
 
 class Rover
