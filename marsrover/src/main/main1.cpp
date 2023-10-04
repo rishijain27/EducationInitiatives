@@ -5,6 +5,6 @@ using namespace std;
 int main()
 {
     string arr = "MMRMLM";
-    GridSurface g;
+    GridSurface g(10, 10);
     cout << g.getXLowerCoordinate() << endl;
 }
