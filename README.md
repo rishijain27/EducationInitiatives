@@ -4,7 +4,7 @@
 - The rover is able to move in any of the four directions—North, South, East, or West—but it is unable to move when there are obstacles in the grid and it is also unable to leave the grid.
 
 # Desgin Patterns
-- In order to implement my code in a clear and understandable manner, I decided against heavily commenting it and instead chose to name my methods and variables in a way that anyone can understand. I tried to make the code as short and clear as I could.
+- In order to implement my code in a clear and understandable manner, I decided against heavily commenting it and instead chose to name my methods and variables in a way that anyone can understand. I tried to make the code as readable and clear as I could.
 
 - I started by figuring out the objects and interfaces I would require, including the Grid, Rover, Direction, and Command. I created these using the most fundamental POJOs (plain old Java objects).  I then started researching how to apply design patterns.
 
